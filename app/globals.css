@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0a0a0f;
+  --foreground: #ffffff;
+  --text-secondary: #b0b0c0;
+  --accent-primary: #8e2de2;
+  --accent-secondary: #f948b7;
+  --accent-cyan: #00ffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  color: var(--text-secondary);
+  font-family: var(--font-body, "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-heading, var(--font-body, sans-serif));
+  letter-spacing: -0.01em;
+}
+
+.font-heading {
+  font-family: var(--font-heading, var(--font-body, sans-serif));
+}
+
+.font-body {
+  font-family: var(--font-body, "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono, "Space Mono", ui-monospace, SFMono-Regular, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+}
+
+.gradient-text {
+  background-image: linear-gradient(90deg, #8e2de2 0%, #f948b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+}
+
+.glow-ring {
+  box-shadow: 0 0 18px rgba(249, 72, 183, 0.35);
+}
+
+.timeline-track {
+  --timeline-progress: 0%;
+}
+
+.timeline-track::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  width: 5px;
+  height: var(--timeline-progress, 0%);
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: linear-gradient(
+    180deg,
+    rgba(142, 45, 226, 0.05) 0%,
+    rgba(142, 45, 226, 0.45) 30%,
+    rgba(249, 72, 183, 0.8) 70%,
+    rgba(0, 255, 255, 0.65) 100%
+  );
+  box-shadow: 0 0 24px rgba(249, 72, 183, 0.45);
+  transition: height 0.35s ease-out;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .timeline-track::after {
+    left: 50%;
+  }
+}
+
+.timeline-node {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-line {
+  opacity: 0;
+  transform-origin: top;
+  transform: scaleY(0.5);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal-line.is-visible {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 14px rgba(142, 45, 226, 0.35), 0 0 0 rgba(142, 45, 226, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(249, 72, 183, 0.5), 0 0 12px rgba(0, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 14px rgba(142, 45, 226, 0.35), 0 0 0 rgba(142, 45, 226, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-node,
+  .reveal-up,
+  .reveal-line {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal-up,
+  .reveal-line {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .timeline-track {
+    --timeline-progress: 100% !important;
+  }
+  .timeline-track::after {
+    height: 100% !important;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--foreground);
+}
+
+::selection {
+  background: rgba(142, 45, 226, 0.45);
+  color: #ffffff;
 }
