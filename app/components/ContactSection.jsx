@@ -58,6 +58,7 @@ const ContactSection = () => {
       );
     }
   };
+
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="absolute inset-0 -z-10">
@@ -73,12 +74,11 @@ const ContactSection = () => {
           <h2 className="mt-4 font-heading text-2xl text-white sm:text-4xl lg:text-5xl">
             Let’s build the next intelligent product together
           </h2>
-          
         </div>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
+        <div className="mt-16 grid gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
           <form
-            className="glass-panel border-white/10 p-8 shadow-[0_30px_70px_rgba(8,8,15,0.65)]"
+            className="glass-panel border-white/10 p-6 shadow-[0_30px_70px_rgba(8,8,15,0.65)] sm:p-8"
             onSubmit={handleSubmit}
           >
             <div className="grid gap-6 sm:grid-cols-2">
@@ -155,81 +155,72 @@ const ContactSection = () => {
             </button>
             {message && (
               <p
-                className={`mt-4 text-center text-sm ${
+                className={`mt-4 text-sm ${
                   status === "success" ? "text-[#00FFFF]/80" : "text-red-400"
-                }`}
+                } sm:text-center`}
               >
                 {message}
               </p>
             )}
           </form>
 
-          <div className="glass-panel space-y-8 border-white/10 p-8">
+          <div className="glass-panel space-y-8 border-white/10 p-6 sm:p-8">
             <div>
-              <h3 className="font-heading text-2xl text-white text-center">My Contacts</h3>
+              <h3 className="font-heading text-2xl text-white text-center sm:text-left">My Contacts</h3>
             </div>
             <div className="space-y-4">
               <a
                 href="tel:+918806045005"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white"
+                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
                   Phone
                 </span>
-                <span className="font-heading text-lg">+91 88060 45005</span>
+                <span className="font-heading text-lg sm:text-right">+91 88060 45005</span>
               </a>
               <a
                 href="mailto:arshadkhatib.2006@gmail.com"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white"
+                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
                   Email
                 </span>
-                <span className="font-heading text-lg">arshadkhatib.2006@gmail.com</span>
+                <span className="font-heading text-lg sm:text-right">arshadkhatib.2006@gmail.com</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/arshad-khatib-408637270/"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white"
+                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
                   LinkedIn
                 </span>
-                <span className="font-heading text-lg">@arshad-khatib</span>
+                <span className="font-heading text-lg sm:text-right">@arshad-khatib</span>
               </a>
               <a
                 href="https://github.com/Arshad-13"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white"
+                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
                   GitHub
                 </span>
-                <span className="font-heading text-lg">@Arshad-13</span>
+                <span className="font-heading text-lg sm:text-right">@Arshad-13</span>
               </a>
               <a
                 href="https://x.com/rationalist_13"
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white"
+                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
                   X / Twitter
                 </span>
-                <span className="font-heading text-lg">@rationalist_13</span>
+                <span className="font-heading text-lg sm:text-right">@rationalist_13</span>
               </a>
             </div>
-            {/* <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85">
-              <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                Availability
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#0F0F18] px-3 py-1 font-heading text-sm text-white">
-                <span className="h-2 w-2 rounded-full bg-[#00FFFF]" />
-                Responds within 24h
-              </span>
-            </div> */}
           </div>
         </div>
       </div>
