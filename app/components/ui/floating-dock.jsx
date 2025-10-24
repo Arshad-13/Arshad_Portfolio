@@ -34,42 +34,51 @@ const FloatingDockMobile = ({ items, className }) => {
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2"
+            className="absolute bottom-16 left-1/2 -translate-x-1/2 min-w-[220px] p-4 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl"
+            initial={{ opacity: 0, scale: 0.8, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 10 }}
           >
-            {items.map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  y: 10,
-                  transition: {
-                    delay: idx * 0.05,
-                  },
-                }}
-                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
-              >
-                <Link
-                  href={item.href}
+            <div className="grid grid-cols-3 gap-3 place-items-center">
+              {items.map((item, idx) => (
+                <motion.div
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.5,
+                  }}
+                  transition={{ 
+                    delay: idx * 0.04,
+                    type: "spring",
+                    stiffness: 250,
+                    damping: 20
+                  }}
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={item.href}
+                    className="h-14 w-14 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/15 hover:border-[#8E2DE2]/40 transition-colors active:scale-95"
+                    title={item.title}
+                  >
+                    <div className="h-6 w-6">{item.icon}</div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center"
+        className="h-12 w-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center justify-center hover:bg-white/15 transition-colors active:scale-95"
+        aria-label="Toggle contact menu"
+        suppressHydrationWarning
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-white/70" />
+        <IconLayoutNavbarCollapse className="h-6 w-6 text-white/70" />
       </button>
     </div>
   );
