@@ -31,7 +31,7 @@ const AboutSection = () => {
               Engineering AI products with measurable impact
             </h2>
             <p className="mt-6 text-base leading-relaxed text-[#B0B0C0] sm:text-lg">
-              I’m Arshad Khatib, a B.Tech (AI) candidate at the National Institute of Technology, Surat. My work pairs human-centred design with production grade machine learning. I am also passionate to contribute on Research and Development in the field of Deep Learning, Natural Language Processing and Computer Vision.
+              I’m Arshad Khatib, a B.Tech (AI) candidate at the National Institute of Technology, Surat. My work pairs human-centred design with production grade machine learning. I’m eager to contribute on Research and Development in the field of Deep Learning, Natural Language Processing and Computer Vision.
             </p>
             <p className="mt-4 text-base leading-relaxed text-[#B0B0C0] sm:text-lg">
               I’m passionate about creating tools that make life easier for people as well as building AI solutions that drive business value. I love crafting efficient algorithms that balance performance and scalability to solve real-world problems.

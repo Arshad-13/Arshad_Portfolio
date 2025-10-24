@@ -1,6 +1,14 @@
 'use client';
 
 import { useState } from "react";
+import { FloatingDock } from "@/app/components/ui/floating-dock";
+import {
+  IconBrandGithub,
+  IconBrandX,
+  IconBrandLinkedin,
+  IconMail,
+  IconPhone,
+} from "@tabler/icons-react";
 
 const ContactSection = () => {
   const [formState, setFormState] = useState({
@@ -59,8 +67,75 @@ const ContactSection = () => {
     }
   };
 
+  const contactLinks = [
+    {
+      title: "Phone",
+      icon: (
+        <IconPhone className="h-full w-full text-white/80" />
+      ),
+      href: "tel:+918806045005",
+    },
+    {
+      title: "Email",
+      icon: (
+        <IconMail className="h-full w-full text-white/80" />
+      ),
+      href: "mailto:arshadkhatib.2006@gmail.com",
+    },
+    {
+      title: "LinkedIn",
+      icon: (
+        <IconBrandLinkedin className="h-full w-full text-white/80" />
+      ),
+      href: "https://www.linkedin.com/in/arshad-khatib-408637270/",
+    },
+    {
+      title: "GitHub",
+      icon: (
+        <IconBrandGithub className="h-full w-full text-white/80" />
+      ),
+      href: "https://github.com/Arshad-13",
+    },
+    {
+      title: "X / Twitter",
+      icon: (
+        <IconBrandX className="h-full w-full text-white/80" />
+      ),
+      href: "https://x.com/rationalist_13",
+    },
+    {
+      title: "LeetCode",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="h-full w-full text-white/80"
+        >
+          <path d="m13.585 2.59 1.414 1.414-6.293 6.293a2 2 0 0 0 0 2.828l6.278 6.278-1.414 1.414-6.278-6.278a4 4 0 0 1 0-5.656l6.293-6.293Zm4.243 3.536 3.536 3.536-1.414 1.414-3.536-3.536 1.414-1.414Zm-1.414 7.07 3.536 3.535-1.414 1.415-3.536-3.536 1.414-1.414Z" />
+        </svg>
+      ),
+      href: "https://leetcode.com/rationalist_13/",
+    },
+    {
+      title: "Codeforces",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="h-full w-full text-white/80"
+        >
+          <path d="M5 3h4v18H5V3Zm5 6h4v12h-4V9Zm5-4h4v16h-4V5Z" />
+        </svg>
+      ),
+      href: "https://codeforces.com/profile/arshadkhatib.2006",
+    },
+  ];
+
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <>
+      <section id="contact" className="relative py-24 sm:py-32 pb-32">
       <div className="absolute inset-0 -z-10">
         <div className="pointer-events-none absolute right-[-20%] top-[-10%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(142,45,226,0.25),transparent_70%)] blur-3xl" />
         <div className="pointer-events-none absolute left-[-12%] bottom-[-15%] h-112 w-md rounded-full bg-[radial-gradient(circle,rgba(0,255,255,0.18),transparent_75%)] blur-3xl" />
@@ -76,10 +151,11 @@ const ContactSection = () => {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-10 sm:gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
+        <div className="mt-16 mx-auto max-w-3xl">
           <form
             className="glass-panel border-white/10 p-6 shadow-[0_30px_70px_rgba(8,8,15,0.65)] sm:p-8"
             onSubmit={handleSubmit}
+            suppressHydrationWarning
           >
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
@@ -114,7 +190,7 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="+91 88060 45005"
+                  placeholder="Enter your contact number"
                   value={formState.phone}
                   onChange={handleChange("phone")}
                   className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
@@ -163,68 +239,15 @@ const ContactSection = () => {
               </p>
             )}
           </form>
-
-          <div className="glass-panel space-y-8 border-white/10 p-6 sm:p-8">
-            <div>
-              <h3 className="font-heading text-2xl text-white text-center sm:text-left">My Contacts</h3>
-            </div>
-            <div className="space-y-4">
-              <a
-                href="tel:+918806045005"
-                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                  Phone
-                </span>
-                <span className="font-heading text-lg sm:text-right">+91 88060 45005</span>
-              </a>
-              <a
-                href="mailto:arshadkhatib.2006@gmail.com"
-                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                  Email
-                </span>
-                <span className="font-heading text-lg sm:text-right">arshadkhatib.2006@gmail.com</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/arshad-khatib-408637270/"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                  LinkedIn
-                </span>
-                <span className="font-heading text-lg sm:text-right">@arshad-khatib</span>
-              </a>
-              <a
-                href="https://github.com/Arshad-13"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                  GitHub
-                </span>
-                <span className="font-heading text-lg sm:text-right">@Arshad-13</span>
-              </a>
-              <a
-                href="https://x.com/rationalist_13"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-white/85 transition hover:border-[#00FFFF]/60 hover:text-white sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-mono uppercase tracking-[0.25em] text-xs text-[#00FFFF]/80">
-                  X / Twitter
-                </span>
-                <span className="font-heading text-lg sm:text-right">@rationalist_13</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
+    {/* Floating Dock - Sticky at bottom */}
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+      <FloatingDock items={contactLinks} />
+    </div>
+  </>
   );
 };
 
