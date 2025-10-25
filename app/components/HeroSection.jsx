@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const roles = [
   "AI Engineer",
-  "Full-Stack Innovator",
+  "Full-Stack Developer",
   "Competitive Programmer",
 ];
 
@@ -80,19 +80,21 @@ const HeroSection = () => {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-[#B0B0C0]/80 lg:justify-start">
+          <div className="flex flex-col items-center gap-3 text-sm text-[#B0B0C0]/80 lg:flex-row lg:flex-wrap lg:justify-start">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#00FFFF]/70">
               Focus Areas
             </span>
-            {focusAreas.map(({ label, accent }) => (
-              <span
-                key={label}
-                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white/90"
-              >
-                <span className={`h-2 w-2 rounded-full ${accent}`} />
-                {label}
-              </span>
-            ))}
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+              {focusAreas.map(({ label, accent }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white/90"
+                >
+                  <span className={`h-2 w-2 rounded-full ${accent}`} />
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
