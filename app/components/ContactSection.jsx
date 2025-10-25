@@ -236,6 +236,7 @@ const ContactSection = () => {
                   onChange={handleChange("name")}
                   className={`mt-2 w-full rounded-xl border ${errors.name ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                   required
+                  suppressHydrationWarning
                 />
                 {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
               </div>
@@ -250,6 +251,7 @@ const ContactSection = () => {
                   onChange={handleChange("email")}
                   className={`mt-2 w-full rounded-xl border ${errors.email ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                   required
+                  suppressHydrationWarning
                 />
                 {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
               </div>
@@ -264,6 +266,7 @@ const ContactSection = () => {
                   onChange={handleChange("phone")}
                   className={`mt-2 w-full rounded-xl border ${errors.phone ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                   required
+                  suppressHydrationWarning
                 />
                 {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone}</p>}
               </div>
@@ -277,6 +280,7 @@ const ContactSection = () => {
                   value={formState.projectType}
                   onChange={handleChange("projectType")}
                   className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
+                  suppressHydrationWarning
                 />
               </div>
             </div>
