@@ -8,7 +8,7 @@ export default function Home() {
   return (
   <main className="flex min-h-screen flex-col bg-transparent">
         <Navbar />
-        <div className="mt-24 flex-1">
+        <div className="flex-1">
           <HeroSection />  
           <AboutSection />
           <ExperienceSection />

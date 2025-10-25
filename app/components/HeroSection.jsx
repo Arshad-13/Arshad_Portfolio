@@ -17,7 +17,7 @@ const focusAreas = [
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 lg:py-40">
+    <section className="relative overflow-hidden pt-0 pb-24 sm:pb-32 lg:pb-40 min-h-screen flex items-center">
       <div className="absolute inset-0 -z-10 opacity-75">
         <div className="pointer-events-none absolute -top-44 right-[-8%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(142,45,226,0.28),transparent_75%)] blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-[-10%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(0,255,255,0.2),transparent_80%)] blur-3xl" />
