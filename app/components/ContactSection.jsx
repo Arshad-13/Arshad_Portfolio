@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FloatingDock } from "@/app/components/ui/floating-dock";
+import { Button } from "@/components/ui/stateful-button";
 import {
   IconBrandGithub,
   IconBrandX,
@@ -20,14 +21,63 @@ const ContactSection = () => {
   });
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation - required, min 2 characters
+    if (!formState.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formState.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Email validation - required, valid format
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!formState.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formState.email.trim())) {
+      newErrors.email = "Please enter a valid email address (e.g., name@example.com)";
+    }
+
+    // Phone validation - required, must be valid format with country code
+    const phoneRegex = /^\+\d{1,3}[\s-]?\d{6,14}$/;
+    if (!formState.phone.trim()) {
+      newErrors.phone = "Contact number is required";
+    } else if (!phoneRegex.test(formState.phone.trim().replace(/[()-\s]/g, ''))) {
+      newErrors.phone = "Please enter a valid phone number with country code (e.g., +91 1234567890)";
+    }
+
+    // Project details validation - required, min 10 characters
+    if (!formState.projectDetails.trim()) {
+      newErrors.projectDetails = "Project details are required";
+    } else if (formState.projectDetails.trim().length < 10) {
+      newErrors.projectDetails = "Please provide at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (field) => (event) => {
     setFormState((prev) => ({ ...prev, [field]: event.target.value }));
+    // Clear error for this field when user starts typing
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (status === "loading") return;
+
+    // Validate form before submission
+    if (!validateForm()) {
+      setStatus("error");
+      setMessage("Please fix the errors before submitting");
+      return;
+    }
 
     setStatus("loading");
     setMessage("");
@@ -37,11 +87,11 @@ const ContactSection = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: formState.name,
-          email: formState.email,
-          phone: formState.phone,
-          projectType: formState.projectType,
-          projectDetails: formState.projectDetails,
+          name: formState.name.trim(),
+          email: formState.email.trim(),
+          phone: formState.phone.trim(),
+          projectType: formState.projectType.trim(),
+          projectDetails: formState.projectDetails.trim(),
           submittedAt: new Date().toISOString(),
         }),
       });
@@ -57,6 +107,7 @@ const ContactSection = () => {
         projectType: "",
         projectDetails: "",
       });
+      setErrors({});
       setStatus("success");
       setMessage("Thanks! I’ll get back to you within 24 hours.");
     } catch (error) {
@@ -64,6 +115,22 @@ const ContactSection = () => {
       setMessage(
         "Something went wrong. Please try again or reach out directly."
       );
+    }
+  };
+
+  const handleButtonClick = async () => {
+    // Wrapper for the stateful button
+    // Validate form before submission
+    if (!validateForm()) {
+      setStatus("error");
+      setMessage("Please fix the errors before submitting");
+      return Promise.reject(new Error("Validation failed")); // Reject promise to stop button animation
+    }
+    
+    // Manually trigger form submission
+    const formElement = document.querySelector('form');
+    if (formElement) {
+      formElement.requestSubmit();
     }
   };
 
@@ -167,9 +234,10 @@ const ContactSection = () => {
                   placeholder="Enter your name"
                   value={formState.name}
                   onChange={handleChange("name")}
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
+                  className={`mt-2 w-full rounded-xl border ${errors.name ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                   required
                 />
+                {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
               </div>
               <div>
                 <label className="font-mono text-[12px] uppercase tracking-[0.3em] text-[#00FFFF]/70">
@@ -180,9 +248,10 @@ const ContactSection = () => {
                   placeholder="Enter your email"
                   value={formState.email}
                   onChange={handleChange("email")}
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
+                  className={`mt-2 w-full rounded-xl border ${errors.email ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                   required
                 />
+                {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
               </div>
               <div>
                 <label className="font-mono text-[12px] uppercase tracking-[0.3em] text-[#00FFFF]/70">
@@ -190,11 +259,13 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="tel"
-                  placeholder="Enter your contact number"
+                  placeholder="Enter contact number with country code"
                   value={formState.phone}
                   onChange={handleChange("phone")}
-                  className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
+                  className={`mt-2 w-full rounded-xl border ${errors.phone ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
+                  required
                 />
+                {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone}</p>}
               </div>
               <div>
                 <label className="font-mono text-[12px] uppercase tracking-[0.3em] text-[#00FFFF]/70">
@@ -215,20 +286,19 @@ const ContactSection = () => {
               </label>
               <textarea
                 rows={5}
-                placeholder="Share the outcomes you’re targeting, timelines, and links or datasets I should review."
+                placeholder="Share the outcomes you're targeting, timelines, and links or datasets I should review."
                 value={formState.projectDetails}
                 onChange={handleChange("projectDetails")}
-                className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]"
+                className={`mt-2 w-full rounded-xl border ${errors.projectDetails ? 'border-red-400/60' : 'border-white/15'} bg-white/5 px-4 py-3 text-sm text-white/90 outline-none transition focus:border-[#8E2DE2]/60 focus:bg-[#0F0F18] focus:shadow-[0_0_20px_rgba(142,45,226,0.25)]`}
                 required
               />
+              {errors.projectDetails && <p className="mt-1 text-xs text-red-400">{errors.projectDetails}</p>}
             </div>
-            <button
-              type="submit"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-linear-to-r from-[#8E2DE2] to-[#F948B7] px-8 py-3 font-semibold text-white shadow-[0_0_24px_rgba(249,72,183,0.45)] transition duration-300 hover:shadow-[0_0_32px_rgba(249,72,183,0.65)] focus:outline-none focus:ring-2 focus:ring-[#F948B7]/60 focus:ring-offset-2 focus:ring-offset-[#0A0A0F] disabled:cursor-not-allowed disabled:opacity-60"
-              disabled={status === "loading"}
-            >
-              {status === "loading" ? "Submitting..." : "Submit"}
-            </button>
+            <div className="mt-8 flex justify-center">
+              <Button onClick={handleButtonClick}>
+                Send Message
+              </Button>
+            </div>
             {message && (
               <p
                 className={`mt-4 text-sm ${
