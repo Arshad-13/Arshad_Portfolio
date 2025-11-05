@@ -73,7 +73,7 @@ const HeroSection = () => {
               </span>
             </Link>
             <a
-              href="/resume.pdf"
+              href="/Arshad_Khatib_Resume.pdf"
               className="inline-flex items-center justify-center rounded-full border border-white/25 px-8 py-3 font-semibold text-white transition duration-300 hover:border-transparent hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#8E2DE2]/60 focus:ring-offset-2 focus:ring-offset-[#0A0A0F]"
             >
               Download CV
