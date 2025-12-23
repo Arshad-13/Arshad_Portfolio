@@ -49,36 +49,42 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-white/10 rounded-full bg-[#0B0B11]/70 shadow-[0_20px_60px_rgba(8,8,15,0.45)] backdrop-blur-xl z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-[rgba(0,243,255,0.3)] rounded-none bg-[#030305]/90 shadow-[0_0_20px_rgba(0,243,255,0.15)] backdrop-blur-md z-[5000] pr-4 pl-6 py-3 items-center justify-center space-x-6 clip-path-polygon",
           className
-        )}>
+        )}
+        style={{
+          clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)"
+        }}
+      >
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 mr-2">
-          <span className="gradient-text text-lg font-semibold tracking-[0.22em] uppercase">
-            Arshad<span className="text-slate-400 font-bold text-2xl">.</span>
+        <a href="/" className="flex items-center gap-2 mr-2 group">
+          <span className="text-primary text-xl font-bold tracking-widest uppercase font-heading group-hover:text-secondary transition-colors duration-300">
+            Arshad<span className="text-white animate-pulse">_</span>
           </span>
         </a>
         
         {/* Separator */}
-        <div className="h-6 w-px bg-white/10" />
+        <div className="h-6 w-px bg-primary/30" />
         
         {navItems.map((navItem, idx) => (
           <a
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative text-white/90 items-center flex space-x-1 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-[#8E2DE2]/60 px-3 py-2 rounded-full",
+              "relative text-gray-300 items-center flex space-x-1 hover:text-primary transition-colors font-mono text-sm uppercase tracking-wider",
             )}>
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="hidden sm:block">{navItem.name}</span>
           </a>
         ))}
         <a
           href="#contact"
-          className="border text-sm font-semibold relative border-white/15 bg-white/5 text-white/90 px-5 py-2 rounded-full uppercase tracking-[0.18em] transition hover:border-transparent hover:bg-[linear-gradient(90deg,#8E2DE2,#F948B7)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#F948B7]/60">
-          <span>Contact Me</span>
-          <span
-            className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-[linear-gradient(90deg,rgba(142,45,226,0.3),rgba(249,72,183,0.5),rgba(0,255,255,0.25))] h-px" />
+          className="relative px-6 py-2 bg-primary/10 border border-primary/50 text-primary font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-black transition-all duration-300 clip-path-button"
+          style={{
+             clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)"
+          }}
+        >
+          <span>Initialize</span>
         </a>
       </motion.div>
     </AnimatePresence>

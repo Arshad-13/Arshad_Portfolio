@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
@@ -61,6 +61,8 @@ const FloatingDockMobile = ({ items, className }) => {
                 >
                   <Link
                     href={item.href}
+                    target={item.target}
+                    rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
                     className="h-14 w-14 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-white/15 hover:border-[#8E2DE2]/40 transition-colors active:scale-95"
                     title={item.title}
                   >
@@ -102,7 +104,7 @@ const FloatingDockDesktop = ({ items, className }) => {
   );
 };
 
-function IconContainer({ mouseX, title, icon, href }) {
+function IconContainer({ mouseX, title, icon, href, target }) {
   let ref = useRef(null);
 
   let distance = useTransform(mouseX, (val) => {
@@ -146,13 +148,13 @@ function IconContainer({ mouseX, title, icon, href }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Link href={href}>
+    <Link href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center relative transition-colors hover:bg-white/15 hover:border-[#8E2DE2]/40"
+        className="aspect-square rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center relative hover:bg-white/15 hover:border-[#8E2DE2]/40 transition-colors"
       >
         <AnimatePresence>
           {hovered && (
@@ -160,7 +162,7 @@ function IconContainer({ mouseX, title, icon, href }) {
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-white/10 border border-white/20 backdrop-blur-xl text-white absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+              className="px-2 py-0.5 whitespace-pre rounded-md bg-black/80 border border-white/10 text-white absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs font-mono"
             >
               {title}
             </motion.div>
