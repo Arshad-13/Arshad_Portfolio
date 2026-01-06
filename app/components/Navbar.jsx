@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FloatingNav } from "../../components/ui/floating-navbar";
+import { FloatingNav } from "./ui/floating-navbar";
 import { IconInfoCircle, IconBriefcase } from "@tabler/icons-react";
 
 const navItems = [
