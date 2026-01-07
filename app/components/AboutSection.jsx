@@ -38,13 +38,31 @@ const AboutSection = () => {
             {/* Left Column - Bio */}
             <div className="order-2 flex flex-col gap-6 lg:order-1">
               <div className="tech-border p-6 bg-black/40 h-full">
-                <h2 className="font-heading text-2xl text-white mb-4 flex items-center gap-2">
-                  <span className="text-primary text-sm font-mono">01.</span>
-                  Engineering <span className="text-primary">AI products</span> with measurable impact
+                <h2 className="font-heading text-2xl text-white mb-6 flex items-start gap-2">
+                  <span className="text-primary text-sm font-mono mt-1">01.</span>
+                  <div className="flex flex-col">
+                    <span>Engineering <span className="text-primary">AI products</span></span>
+                    <span>with measurable impact</span>
+                  </div>
                 </h2>
+
+                {/* Separator */}
+                <div className="h-px bg-gradient-to-r from-primary/50 via-primary to-primary/50 mb-6" />
+
                 <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                   <p>{bio.description1}</p>
                   <p>{bio.description2}</p>
+                  <p>
+                    Beyond code, I'm driven by the challenge of translating complex AI research into
+                    production-ready systems that scale. Whether it's optimizing neural architectures
+                    for real-time inference or designing intuitive interfaces for AI-powered tools,
+                    I thrive at the intersection of innovation and practicality.
+                  </p>
+                  <p>
+                    My approach combines rigorous technical execution with user-centric thinking—because
+                    the most sophisticated AI is only as valuable as its ability to solve real problems
+                    for real people.
+                  </p>
                 </div>
                 <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-4">
                   <div className="flex items-center gap-2 text-xs">
