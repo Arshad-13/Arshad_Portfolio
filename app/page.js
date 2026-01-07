@@ -9,8 +9,6 @@ import GameDock from "./components/GameDock";
 import Loader from "./components/ui/loader";
 import ScrollProgress from "./components/ui/ScrollProgress";
 import SectionDivider from "./components/ui/SectionDivider";
-import MatrixRain from "./components/ui/MatrixRain";
-import KonamiCode from "./components/ui/KonamiCode";
 
 // Lazy load heavy sections
 const AboutSection = dynamic(() => import("./components/AboutSection"), {
@@ -35,8 +33,6 @@ export default function Home() {
       </AnimatePresence>
 
       <ScrollProgress />
-      <MatrixRain />
-      <KonamiCode />
 
       <main className="flex min-h-screen flex-col bg-transparent relative">
         {!isLoading && (

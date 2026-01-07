@@ -159,7 +159,7 @@ const HeroSection = () => {
               Architecting intelligence from chaos. I fuse <span className="text-white font-medium">neural networks</span> with <span className="text-white font-medium">immersive interfaces</span> to build the next generation of digital experiences.
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-center lg:justify-start mt-4">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center justify-center lg:justify-start mt-4 sm:gap-8">
               <MagneticButton>
                 <Link
                   href="#contact"

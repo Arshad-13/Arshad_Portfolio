@@ -37,10 +37,10 @@ const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left Column - Bio */}
             <div className="order-2 flex flex-col gap-6 lg:order-1">
-              <div className="tech-border p-6 bg-black/40">
+              <div className="tech-border p-6 bg-black/40 h-full">
                 <h2 className="font-heading text-2xl text-white mb-4 flex items-center gap-2">
                   <span className="text-primary text-sm font-mono">01.</span>
-                  {bio.heading}
+                  Engineering <span className="text-primary">AI products</span> with measurable impact
                 </h2>
                 <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
                   <p>{bio.description1}</p>
