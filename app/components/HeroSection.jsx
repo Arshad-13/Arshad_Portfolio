@@ -4,6 +4,8 @@ import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import Tilt from 'react-parallax-tilt';
+import ParticleBackground from "./ui/ParticleBackground";
 
 import { roles, focusAreas } from "../data/portfolio";
 
@@ -18,7 +20,8 @@ const HeroSection = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
-  const [stats, setStats] = useState({ level: 19, exp: 0 });
+  const [stats, setStats] = useState({ level: 0, exp: 0 });
+  const [targetStats, setTargetStats] = useState({ level: 19, exp: 0 });
 
   useEffect(() => {
     const birthDate = new Date("2006-05-13");
@@ -42,11 +45,36 @@ const HeroSection = () => {
     const timePassed = now - lastBirthday;
     const percentage = (timePassed / totalTime) * 100;
 
-    setStats({
+    setTargetStats({
       level: age,
-      exp: percentage.toFixed(1)
+      exp: parseFloat(percentage.toFixed(1))
     });
   }, []);
+
+  // Count-up animation
+  useEffect(() => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+
+      setStats({
+        level: Math.floor(targetStats.level * progress),
+        exp: parseFloat((targetStats.exp * progress).toFixed(1))
+      });
+
+      if (currentStep >= steps) {
+        setStats(targetStats);
+        clearInterval(interval);
+      }
+    }, stepDuration);
+
+    return () => clearInterval(interval);
+  }, [targetStats]);
 
   return (
     <section ref={targetRef} className="relative overflow-hidden min-h-screen flex items-center justify-center perspective-1000">
@@ -70,6 +98,7 @@ const HeroSection = () => {
 
       {/* Background Grid & Effects */}
       <div className="absolute inset-0 -z-10">
+        <ParticleBackground />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         <div className="absolute top-0 left-0 right-0 h-[500px] bg-primary/5 blur-[120px] rounded-full mix-blend-screen" />
         <div className="absolute bottom-0 right-0 h-[500px] w-[500px] bg-secondary/5 blur-[120px] rounded-full mix-blend-screen" />
@@ -107,7 +136,7 @@ const HeroSection = () => {
             <h1 className="font-heading text-5xl leading-none text-white sm:text-7xl lg:text-8xl tracking-tighter relative">
               <span className="absolute -left-4 -top-4 text-xs font-mono text-white/20 hidden lg:block">01</span>
               HI, I'M <br />
-              <span className="glitch-effect text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary" data-text="ARSHAD">
+              <span className="glitch-effect chromatic-text text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary" data-text="ARSHAD">
                 ARSHAD
               </span>
             </h1>
@@ -158,28 +187,37 @@ const HeroSection = () => {
 
             {/* Central Core */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={{
-                  rotateY: [0, 10, 0, -10, 0],
-                  rotateX: [0, 5, 0, -5, 0]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-72 h-72 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center relative overflow-hidden shadow-[0_0_50px_rgba(0,243,255,0.2)]"
+              <Tilt
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={15}
+                perspective={1000}
+                scale={1.05}
+                transitionSpeed={2000}
+                gyroscope={true}
               >
-                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20 animate-grid-scroll" />
+                <motion.div
+                  animate={{
+                    rotateY: [0, 10, 0, -10, 0],
+                    rotateX: [0, 5, 0, -5, 0]
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-72 h-72 bg-gradient-to-tr from-primary/10 to-secondary/10 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center relative overflow-hidden shadow-[0_0_50px_rgba(0,243,255,0.2)]"
+                >
+                  <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20 animate-grid-scroll" />
 
-                {/* Central Data */}
-                <div className="text-center z-10 relative">
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white/40">SYS_ID: 0X2A</div>
-                  <div className="text-5xl font-bold text-white font-heading tracking-tighter glitch-effect" data-text={`LVL. ${stats.level}`}>LVL. {stats.level}</div>
-                  <div className="text-xs text-primary font-mono mt-2 border-t border-primary/30 pt-1">EXP: {stats.exp}%</div>
+                  {/* Central Data */}
+                  <div className="text-center z-10 relative">
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white/40">SYS_ID: 0X2A</div>
+                    <div className="text-5xl font-bold text-white font-heading tracking-tighter glitch-effect" data-text={`LVL. ${stats.level}`}>LVL. {stats.level}</div>
+                    <div className="text-xs text-primary font-mono mt-2 border-t border-primary/30 pt-1">EXP: {stats.exp}%</div>
 
-                  {/* Progress Bar */}
-                  <div className="w-32 h-1 bg-white/10 mt-2 rounded-full overflow-hidden mx-auto">
-                    <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${stats.exp}%` }} />
+                    {/* Progress Bar */}
+                    <div className="w-32 h-1 bg-white/10 mt-2 rounded-full overflow-hidden mx-auto">
+                      <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${stats.exp}%` }} />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Tilt>
             </div>
 
             {/* Floating Stats Cards - Orbiting */}
