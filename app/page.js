@@ -7,6 +7,8 @@ import { AnimatePresence } from "framer-motion";
 import HeroSection from "./components/HeroSection";
 import GameDock from "./components/GameDock";
 import Loader from "./components/ui/loader";
+import ScrollProgress from "./components/ui/ScrollProgress";
+import SectionDivider from "./components/ui/SectionDivider";
 
 // Lazy load heavy sections
 const AboutSection = dynamic(() => import("./components/AboutSection"), {
@@ -30,14 +32,19 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      <ScrollProgress />
+
       <main className="flex min-h-screen flex-col bg-transparent relative">
         {!isLoading && (
           <>
             <GameDock />
             <div className="flex-1">
               <HeroSection />
+              <SectionDivider />
               <AboutSection />
+              <SectionDivider />
               <ExperienceSection />
+              <SectionDivider />
               <ContactSection />
             </div>
           </>

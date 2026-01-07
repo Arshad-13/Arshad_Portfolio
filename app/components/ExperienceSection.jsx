@@ -1,15 +1,29 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { IconArrowRight } from "@tabler/icons-react";
 
 import { experiences } from "../data/portfolio";
 
 const ExperienceSection = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   return (
-    <section id="experience" className="relative py-24 sm:py-32 overflow-hidden">
-      <div className="container mx-auto px-6 sm:px-10 lg:px-16">
+    <section ref={sectionRef} id="experience" className="relative py-24 sm:py-32 overflow-hidden">
+      {/* Background Grid with Parallax */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      />
+
+      <div className="container mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
 
         <div className="flex flex-col items-center mb-16">
           <span className="font-mono text-xs uppercase tracking-[0.35em] text-primary/80 mb-2">
