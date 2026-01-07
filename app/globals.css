@@ -7,33 +7,35 @@
   /* Base Colors - Dark & Serene */
   --background: #030305;
   --foreground: #e2e2e2;
-  
+
   /* UI Elements */
   --card: rgba(10, 10, 16, 0.6);
   --card-foreground: #e2e2e2;
   --popover: #0a0a10;
   --popover-foreground: #e2e2e2;
-  
+
   /* Brand Colors - Neon & Tech */
-  --primary: #00f3ff; /* Cyan Neon */
+  --primary: #00f3ff;
+  /* Cyan Neon */
   --primary-foreground: #000000;
-  
-  --secondary: #bc13fe; /* Electric Purple */
+
+  --secondary: #bc13fe;
+  /* Electric Purple */
   --secondary-foreground: #ffffff;
-  
+
   --muted: #1a1a24;
   --muted-foreground: #8a8a9b;
-  
+
   --accent: #1f1f2e;
   --accent-foreground: #00f3ff;
-  
+
   --destructive: #ff3366;
   --destructive-foreground: #ffffff;
-  
+
   --border: #1f1f2e;
   --input: #1f1f2e;
   --ring: #00f3ff;
-  
+
   --radius: 0.5rem;
 }
 
@@ -44,7 +46,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading, sans-serif);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -92,16 +99,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .neon-text {
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.5),
-               0 0 20px rgba(0, 243, 255, 0.3);
+    0 0 20px rgba(0, 243, 255, 0.3);
 }
 
 .neon-box {
   box-shadow: 0 0 10px rgba(0, 243, 255, 0.1),
-              inset 0 0 20px rgba(0, 243, 255, 0.05);
+    inset 0 0 20px rgba(0, 243, 255, 0.05);
 }
 
 .hud-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
@@ -147,41 +154,86 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes glitch-anim {
-  0% { clip: rect(30px, 9999px, 10px, 0); }
-  5% { clip: rect(80px, 9999px, 90px, 0); }
-  10% { clip: rect(10px, 9999px, 40px, 0); }
-  15% { clip: rect(50px, 9999px, 20px, 0); }
-  20% { clip: rect(20px, 9999px, 60px, 0); }
-  100% { clip: rect(70px, 9999px, 30px, 0); }
+  0% {
+    clip: rect(30px, 9999px, 10px, 0);
+  }
+
+  5% {
+    clip: rect(80px, 9999px, 90px, 0);
+  }
+
+  10% {
+    clip: rect(10px, 9999px, 40px, 0);
+  }
+
+  15% {
+    clip: rect(50px, 9999px, 20px, 0);
+  }
+
+  20% {
+    clip: rect(20px, 9999px, 60px, 0);
+  }
+
+  100% {
+    clip: rect(70px, 9999px, 30px, 0);
+  }
 }
 
 @keyframes glitch-anim2 {
-  0% { clip: rect(10px, 9999px, 80px, 0); }
-  5% { clip: rect(40px, 9999px, 10px, 0); }
-  10% { clip: rect(90px, 9999px, 50px, 0); }
-  15% { clip: rect(20px, 9999px, 30px, 0); }
-  20% { clip: rect(60px, 9999px, 10px, 0); }
-  100% { clip: rect(30px, 9999px, 70px, 0); }
+  0% {
+    clip: rect(10px, 9999px, 80px, 0);
+  }
+
+  5% {
+    clip: rect(40px, 9999px, 10px, 0);
+  }
+
+  10% {
+    clip: rect(90px, 9999px, 50px, 0);
+  }
+
+  15% {
+    clip: rect(20px, 9999px, 30px, 0);
+  }
+
+  20% {
+    clip: rect(60px, 9999px, 10px, 0);
+  }
+
+  100% {
+    clip: rect(30px, 9999px, 70px, 0);
+  }
 }
 
 /* Chromatic Aberration Effect */
 .chromatic-text {
-  text-shadow: 
-    -2px 0 0 rgba(255,0,255,0.5),
-    2px 0 0 rgba(0,255,255,0.5);
+  text-shadow:
+    -2px 0 0 rgba(255, 0, 255, 0.5),
+    2px 0 0 rgba(0, 255, 255, 0.5);
 }
 
 /* Glassmorphism Card */
 .glass-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 .glass-card:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
   border-color: rgba(0, 243, 255, 0.3);
 }
 
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Tilt from 'react-parallax-tilt';
 import ParticleBackground from "./ui/ParticleBackground";
+import MagneticButton from "./ui/MagneticButton";
 
 import { roles, focusAreas } from "../data/portfolio";
 
@@ -159,22 +160,26 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-center lg:justify-start mt-4">
-              <Link
-                href="#contact"
-                className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-black transition-all duration-200 bg-[#00f3ff] font-heading uppercase tracking-widest hover:bg-white hover:scale-105 clip-path-button shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:shadow-[0_0_30px_rgba(0,243,255,0.6)]"
-                style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
-              >
-                <span>Initialize Protocol</span>
-                <div className="absolute inset-0 -z-10 bg-[#00f3ff]/50 blur-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200" />
-              </Link>
+              <MagneticButton>
+                <Link
+                  href="#contact"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-black transition-all duration-200 bg-[#00f3ff] font-heading uppercase tracking-widest hover:bg-white hover:scale-105 clip-path-button shadow-[0_0_20px_rgba(0,243,255,0.3)] hover:shadow-[0_0_30px_rgba(0,243,255,0.6)]"
+                  style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
+                >
+                  <span>Initialize Protocol</span>
+                  <div className="absolute inset-0 -z-10 bg-[#00f3ff]/50 blur-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200" />
+                </Link>
+              </MagneticButton>
 
-              <a
-                href="/Arshad_Khatib_Resume.pdf"
-                className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-[#00f3ff] transition-all duration-200 border border-[#00f3ff]/30 bg-transparent font-heading uppercase tracking-widest hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] clip-path-button"
-                style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
-              >
-                <span>Access Data (CV)</span>
-              </a>
+              <MagneticButton>
+                <a
+                  href="/Arshad_Khatib_Resume.pdf"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-[#00f3ff] transition-all duration-200 border border-[#00f3ff]/30 bg-transparent font-heading uppercase tracking-widest hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] clip-path-button"
+                  style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
+                >
+                  <span>Access Data (CV)</span>
+                </a>
+              </MagneticButton>
             </div>
           </div>
 
