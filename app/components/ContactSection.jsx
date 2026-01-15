@@ -103,9 +103,9 @@ const ContactSection = () => {
 
             <div className="grid grid-cols-3 gap-4">
               {[
-                { icon: Github, label: "GITHUB", href: "https://github.com/Arshad-264", color: "hover:text-purple-400" },
-                { icon: Linkedin, label: "LINKEDIN", href: "https://www.linkedin.com/in/arshad-ahmed-khan-28491325a/", color: "hover:text-blue-400" },
-                { icon: Mail, label: "EMAIL", href: "mailto:arshadkhan2642002@gmail.com", color: "hover:text-cyan-400" },
+                { icon: Github, label: "GITHUB", href: "https://github.com/Arshad-13", color: "hover:text-purple-400" },
+                { icon: Linkedin, label: "LINKEDIN", href: "https://www.linkedin.com/in/arshad-khatib-408637270/", color: "hover:text-blue-400" },
+                { icon: Mail, label: "EMAIL", href: "mailto:arshadkhatib.2006@gmail.com", color: "hover:text-cyan-400" },
               ].map((item, i) => (
                 <a 
                   key={i}

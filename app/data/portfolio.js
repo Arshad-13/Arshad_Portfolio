@@ -45,6 +45,31 @@ export const bio = {
 
 export const experiences = [
     {
+        slug: "hft-trading-platform",
+        title: "HFT Market Analysis & Trading Platform",
+        organization: "Surveillance & Pattern discovery",
+        date: "Dec 2025 - Jan 2026",
+        description:
+            "Engineered a production-grade HFT platform processing 160+ snapshots/sec with <10ms latency, utilizing a dual-core C++ gRPC and Python architecture for high-speed analytics.",
+        details: {
+            problem: "Financial markets require ultra-low latency systems to detect irregularities and capitalize on short-term price movements amidst massive data volumes.",
+            solution: "Architected a high-speed system using C++ for execution and Python for analytics. Deployed a DeepLOB CNN model for real-time price direction prediction.",
+            features: [
+                "High-Frequency Data Processing (<10ms latency)",
+                "DeepLOB CNN Model (63.4% Accuracy)",
+                "Market Manipulation Detection (Spoofing/Layering)",
+                "Scalable AWS Cloud Infrastructure (ECS, RDS, S3)"
+            ],
+            impact: "Achieved 60% win rate and 1.82 Sharpe Ratio in simulations. Optimized time-series storage with TimescaleDB (8:1 compression)."
+        },
+        tech: ["C++", "Python", "gRPC", "DeepLOB CNN", "AWS", "TimescaleDB"],
+        links: {
+            external: "https://trading-hub.live",
+            github: "https://github.com/Arshad-13/genesis2025"
+        },
+        status: "LIVE"
+    },
+    {
         slug: "tracs-wasp-2025",
         title: "Hybrid Ensemble for Astrophysical Document Classification",
         organization: "TRACS @ WASP 2025 | Team - Clutch or Cry",
@@ -64,7 +89,8 @@ export const experiences = [
         },
         tech: ["Python", "PyTorch", "astroBERT", "XGBoost", "Scikit-learn"],
         links: {
-            // Add links if available
+            external: "https://drive.google.com/file/d/1XF2nmSg34A0-X_xcRxb3luJMccrycz71/view?usp=sharing",
+            kaggle: "https://www.kaggle.com/competitions/tracs-wasp-2025/leaderboard"
         },
         status: "PUBLISHED"
     },
@@ -115,7 +141,33 @@ export const experiences = [
         tech: ["TensorFlow", "Keras", "OpenCV", "Python", "Raspberry Pi"],
         links: {
             github: "https://github.com/Arshad-13/Makernova",
+            documentation: "https://docs.google.com/document/d/175QO3hpH85RUP6PY5FiqolnbVJcuIt83MistBMIyYoY/edit?usp=sharing"
         },
         status: "COMPLETED"
+    },
+    {
+        slug: "oneflow-platform",
+        title: "OneFlow: Plan-to-Bill Platform",
+        organization: "Oddo x Amalthea Hackathon (IIT Gandhinagar)",
+        date: "2024",
+        description:
+            "A comprehensive project management and billing solution developed within a strict 24-hour hackathon environment. Features RBAC and automated data ingestion.",
+        details: {
+            problem: "Managing the lifecycle from project planning to billing while handling user permissions and legacy data import is complex for enterprises.",
+            solution: "Built a robust Next.js platform with PostgreSQL. Implemented strict Role-Based Access Control and automated bulk data ingestion via CSV.",
+            features: [
+                "Role-Based Access Control (RBAC)",
+                "Bulk Data Ingestion (CSV Parsing)",
+                "Automated Billing Integration",
+                "OCR Document Data Extraction"
+            ],
+            impact: "Developed a functional MVP with secure permission hierarchies and data automation in under 24 hours."
+        },
+        tech: ["Next.js", "PostgreSQL", "Prisma ORM", "OCR", "TypeScript"],
+        links: {
+            external: "https://oddo-hackathon-pied.vercel.app",
+            github: "https://github.com/manavdhamecha77/Oddo-Hackathon"
+        },
+        status: "HACKATHON"
     },
 ];

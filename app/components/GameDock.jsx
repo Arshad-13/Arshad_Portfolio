@@ -33,7 +33,7 @@ const GameDock = () => {
       icon: (
         <IconBrandGithub className="h-full w-full text-neutral-300" />
       ),
-      href: "https://github.com/Arshad-264",
+      href: "https://github.com/Arshad-13",
       target: "_blank",
     },
     {
@@ -41,15 +41,7 @@ const GameDock = () => {
       icon: (
         <IconBrandLinkedin className="h-full w-full text-neutral-300" />
       ),
-      href: "https://www.linkedin.com/in/arshad-ahmed-khan-28491325a/",
-      target: "_blank",
-    },
-    {
-      title: "Codeforces",
-      icon: (
-        <IconTerminal className="h-full w-full text-neutral-300" />
-      ),
-      href: "#", // Update with your Codeforces profile URL
+      href: "https://www.linkedin.com/in/arshad-khatib-408637270/",
       target: "_blank",
     },
     {
@@ -57,7 +49,7 @@ const GameDock = () => {
       icon: (
         <IconCode className="h-full w-full text-neutral-300" />
       ),
-      href: "#", // Update with your LeetCode profile URL
+      href: "https://leetcode.com/u/rationalist_13/",
       target: "_blank",
     },
     {
