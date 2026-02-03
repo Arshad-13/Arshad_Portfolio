@@ -45,6 +45,31 @@ export const bio = {
 
 export const experiences = [
     {
+        slug: "project-veritas",
+        title: "Project Veritas (1st Place Winner)",
+        organization: "Echelon 2026 Hackathon",
+        date: "Feb 2026",
+        description:
+            "A Multi-Modal Misinformation Detection system with Explanation Generation. Built in 24 hours, winning 1st Place at Echelon 2026.",
+        details: {
+            problem: "The rapid spread of multi-modal misinformation (text + images) requires explainable detection systems to build user trust.",
+            solution: "Developed 'Project Veritas', a comprehensive system verifying claims across formats. Uses a hybrid architecture to analyze text consistency and image manipulation, generating human-readable explanations.",
+            features: [
+                "Multi-Modal Analysis (Text + Image)",
+                "Explanation Generation (Why is it fake?)",
+                "Real-time Fact Checking",
+                "Chrome Extension Integration"
+            ],
+            impact: "Won 1st Place at Echelon 2026. Successfully demonstrated detection of complex deepfakes and misleading captions."
+        },
+        tech: ["Python", "PyTorch", "Transformers", "Next.js", "FastAPI"],
+        links: {
+            github: "https://github.com/Arshad-13/Echelon",
+            external: "https://echelon-svnit.vercel.app"
+        },
+        status: "WINNER"
+    },
+    {
         slug: "hft-trading-platform",
         title: "HFT Market Analysis & Trading Platform",
         organization: "Surveillance & Pattern discovery",
