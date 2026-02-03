@@ -30,6 +30,7 @@ export const toolkit = [
 ];
 
 export const achievements = [
+    "Winner, Echelon 2026 (1st Place in Hackathon)",
     "Top 5 in TRACS @ WASP 2025 (4th Rank on Kaggle Leaderboard)",
     "Winner, Web Wonders 2025 (1st Rank in Fashion Theme)",
     "Finalist, ACM Summer Challenge 2025"
