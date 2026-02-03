@@ -11,7 +11,7 @@
   <!-- TROPHY ROOM -->
   <br/>
   <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=Arshad-13&theme=radical&no-frame=true&column=7&margin-w=15&margin-h=15" alt="Arshad's Trophies" />
+    <img src="https://github-profile-trophy.vercel.app/?username=Arshad-13&theme=radical&no-frame=true&column=7&margin-w=10&margin-h=10" alt="Arshad's Trophies" />
   </a>
 </div>
 
@@ -34,12 +34,12 @@ I'm a B.Tech (AI) candidate at **NIT Surat**, fusing **Deep Learning Research** 
     <tr>
       <td>
         <a href="https://github.com/anuraghazra/github-readme-stats">
-          <img src="https://github-readme-stats.vercel.app/api?username=Arshad-13&show_icons=true&theme=tokyonight&count_private=true&hide_border=true" alt="Arshad's Stats" />
+          <img src="https://github-readme-stats.vercel.app/api?username=Arshad-13&show_icons=true&theme=tokyonight&hide_border=true" alt="Arshad's Stats" />
         </a>
       </td>
       <td>
         <a href="https://github.com/streaks/streak-stats">
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=Arshad-13&theme=tokyonight&hide_border=true" alt="Arshad's Streak" />
+          <img src="https://streak-stats.demolab.com?user=Arshad-13&theme=tokyonight&hide_border=true" alt="Arshad's Streak" />
         </a>
       </td>
     </tr>
