@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0_00f3ff_100_bc13fe&height=300&section=header&text=Arshad%20Khatib&fontSize=90&fontAlignY=38&desc=Engineering%20AI%20Products%20with%20Measurable%20Impact&descAlignY=55&descAlign=50" alt="Arshad Khatib Header" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00f3ff,100:bc13fe&height=300&section=header&text=Arshad%20Khatib&fontSize=90&fontColor=ffffff&fontAlignY=38&desc=Engineering%20AI%20Products%20with%20Measurable%20Impact&descSize=20&descColor=ffffff&descAlignY=55&descAlign=50" alt="Arshad Khatib Header" width="100%" />
 
   <h1 align="center">Hi there, I'm Arshad! 👋</h1>
   <p align="center">
