@@ -173,7 +173,7 @@ const HeroSection = () => {
 
               <MagneticButton>
                 <a
-                  href="/Arshad_Khatib_Resume.pdf"
+                  href="/Arshad_Khatib_Resume_v3.pdf"
                   className="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-[#00f3ff] transition-all duration-200 border border-[#00f3ff]/30 bg-transparent font-heading uppercase tracking-widest hover:bg-[#00f3ff]/10 hover:border-[#00f3ff] clip-path-button"
                   style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
                 >
